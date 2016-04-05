@@ -2,6 +2,14 @@
 
 # include "IronSnake.hpp"
 
+#define MAIN_MENU_BEGIN		1
+#define MAIN_MENU_SIZE		3
+#define MAIN_MENU_END		MAIN_MENU_BEGIN + MAIN_MENU_SIZE -1
+
+#define OPTIONS_MENU_BEGIN	MAIN_MENU_END + 1
+#define OPTIONS_MENU_SIZE	4
+#define OPTIONS_MENU_END	OPTIONS_MENU_BEGIN + OPTIONS_MENU_SIZE -1
+
 class Menu
 {
   //Pointer on IronSnake instance

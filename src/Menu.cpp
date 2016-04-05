@@ -32,42 +32,71 @@ void	Menu::display()
   _ironSnake->_win.clear(sf::Color::Black);
 
   //Display Main Menu text
-  this->displayText("IRON SNAKE", 110, true, sf::Vector2f(WH_SIZE/2.0f, WV_SIZE/7.5f));
-  this->displayText("Play", (_choice == 1 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 4));
-  this->displayText("Options", (_choice == 2 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 5.5));
-  this->displayText("Exit", (_choice == 3 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 7));
+  if (_choice <= MAIN_MENU_END)
+  {
+    this->displayText("IRON SNAKE", 110, true, sf::Vector2f(WH_SIZE/2.0f, WV_SIZE/7.5f));
+    this->displayText("Play",     (_choice == MAIN_MENU_BEGIN ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 4));
+    this->displayText("Options",  (_choice == MAIN_MENU_BEGIN + 1 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 5.5));
+    this->displayText("Exit",     (_choice == MAIN_MENU_BEGIN + 2 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 7));
+  }
+  else if (_choice <= OPTIONS_MENU_END)
+  {
+    this->displayText("OPTIONS", 90, true, sf::Vector2f(WH_SIZE/2.0f, WV_SIZE/7.5f));
+    this->displayText("Choice 1", (_choice == OPTIONS_MENU_BEGIN ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 4));
+    this->displayText("Choice 2", (_choice == OPTIONS_MENU_BEGIN + 1 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 5));
+    this->displayText("Choice 3", (_choice == OPTIONS_MENU_BEGIN + 2 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 6));
+    this->displayText("Return to main menu", (_choice == OPTIONS_MENU_BEGIN + 3 ? 65 : 40), true, sf::Vector2f(WH_SIZE/2.7f, WV_SIZE/10 * 7));
+  }
 
   //Put all on screen
   _ironSnake->_win.display();
 }
 
-//Max menu size is 3
-#define MENU_SIZE 3
 
 void	Menu::manageKey()
 {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    _choice = (_choice == MENU_SIZE ? 1 : _choice + 1);
+  {
+    if (_choice <= MAIN_MENU_END)
+      _choice = (_choice == MAIN_MENU_END ? MAIN_MENU_BEGIN : _choice + 1);
+    else if (_choice <= OPTIONS_MENU_END)
+      _choice = (_choice == OPTIONS_MENU_END ? OPTIONS_MENU_BEGIN : _choice + 1);
+  }
 
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
 
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    _choice = (_choice == 1 ? MENU_SIZE : _choice - 1);
+  {
+    if (_choice <= MAIN_MENU_END)
+      _choice = (_choice == MAIN_MENU_BEGIN ? MAIN_MENU_END : _choice - 1);
+    else if (_choice <= OPTIONS_MENU_END)
+      _choice = (_choice == OPTIONS_MENU_BEGIN ? OPTIONS_MENU_END : _choice - 1);
+  }
 
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
     switch (_choice)
     {
-      //Play
-      case 1:
+      //MainMenu -- Play
+      case MAIN_MENU_BEGIN:
         break;
 
-      //Options
-      case 2:
+      //MainMenu -- Options
+      case MAIN_MENU_BEGIN + 1:
+        _choice = OPTIONS_MENU_BEGIN;
         break;
 
-      //Exit
-      case 3:
+      //MainMenu -- Exit
+      case MAIN_MENU_BEGIN + 2:
         exit(0);
+        break;
+
+      case OPTIONS_MENU_BEGIN:
+      case OPTIONS_MENU_BEGIN + 1:
+      case OPTIONS_MENU_BEGIN + 2:
+        break;
+
+      case OPTIONS_MENU_BEGIN + 3:
+        _choice = MAIN_MENU_BEGIN;
     }
 }

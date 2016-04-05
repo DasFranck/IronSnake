@@ -1,3 +1,4 @@
 IronSnake
 *.o
 a.out
+*.swp
