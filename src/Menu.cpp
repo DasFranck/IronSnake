@@ -78,6 +78,7 @@ void	Menu::manageKey()
     {
       //MainMenu -- Play
       case MAIN_MENU_BEGIN:
+        _ironSnake->start();
         break;
 
       //MainMenu -- Options

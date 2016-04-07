@@ -18,6 +18,11 @@ IronSnake::~IronSnake()
 
 }
 
+void	IronSnake::loadRessources()
+{
+
+}
+
 void	IronSnake::display()
 {
 
@@ -25,5 +30,17 @@ void	IronSnake::display()
 
 void	IronSnake::manageKey()
 {
+
+}
+
+void	IronSnake::stop()
+{
+
+}
+
+void	IronSnake::start()
+{
+  _focus = true;
+  this->loadRessources();
 
 }
