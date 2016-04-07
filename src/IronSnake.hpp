@@ -1,6 +1,7 @@
 #pragma once
 
 //Include libs
+#include <map>
 #include <vector>
 #include <SFML/Graphics.hpp>
 
@@ -21,7 +22,7 @@ class IronSnake
     bool		_focus;
 
     //PTR ON CHARACTER
-    ICharacter		*_player;
+    ICharacter			*_player;
 
     //VECTOR OF IMapObject*
     //std::vector<IMapObject *>	_mapobjs;

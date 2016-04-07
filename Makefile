@@ -10,9 +10,9 @@ OBJS	= $(SRCS:.cpp=.o)
 
 RM	= rm -f
 
-CXXFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -std=c++11
+CXXFLAGS = -Wall -Wextra -lsfml-graphics -lsfml-window -lsfml-system -std=c++11
 
-all:	 $(NAME) 
+all:	 $(NAME)
 
 $(NAME): $(OBJS)
 	 $(CXX) $(OBJS) -o $(NAME) $(CXXFLAGS)

@@ -36,6 +36,9 @@ int			main()
           if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
             return (0);
           break;
+
+        default:
+          break;
       }
     }
 

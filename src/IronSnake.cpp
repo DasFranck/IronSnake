@@ -18,29 +18,35 @@ IronSnake::~IronSnake()
 
 }
 
+//Ressource loader
 void	IronSnake::loadRessources()
 {
 
 }
 
+//Display the game on screen
 void	IronSnake::display()
 {
 
 }
 
+//Manage key input
 void	IronSnake::manageKey()
 {
 
 }
 
+//Stop the game and go back to the main menu
 void	IronSnake::stop()
 {
-
+  _focus = false;
 }
 
+//Start the game
 void	IronSnake::start()
 {
   _focus = true;
+  printf("GAME STARTED");
   this->loadRessources();
 
 }

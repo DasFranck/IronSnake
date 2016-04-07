@@ -21,7 +21,12 @@ class Menu
   public:
     Menu(IronSnake *iS);
     ~Menu();
+
+    //Display functions
     void		display();
-    void		displayText(std::string const str, short size, sf::Vector2f pos, bool cenx = false, bool ceny = false);
+    void		resetText();
+    void		displayText(std::string const str, short size, sf::Vector2f pos, bool cenx = false, bool ceny = false, bool reset = true);
+
+    //Input Manager function
     void		manageKey();
 };
