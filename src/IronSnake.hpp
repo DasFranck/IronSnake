@@ -16,27 +16,31 @@
 class IronSnake
 {
   public:
-    sf::RenderWindow	_win;
-    sf::Font		_font;
-    sf::Text		_text;
-    bool		_focus;
+    //InstaLoaded
+    sf::RenderWindow			_win;
+    std::map<std::string, sf::Font>	_font;
+    bool				_focus;
+
+    sf::Text				_text;
 
     //PTR ON CHARACTER
-    ICharacter			*_player;
+    ICharacter				*_player;
 
     //VECTOR OF IMapObject*
-    //std::vector<IMapObject *>	_mapobjs;
+    //std::vector<IMapObject *>		_mapobjs;
 
     //VECTOR OF IEnemy*
-    //std::vector<IEnemy *>	_enemies;
+    //std::vector<IEnemy *>		_enemies;
 
     //VECTOR OF IProjectile*
-    //std::vector<IProjectile *>	_projectiles;
+    //std::vector<IProjectile *>		_projectiles;
 
   public:
     IronSnake();
     ~IronSnake();
     void		display();
+    void		loadFont(std::string key, std::string path);
+    void		loadFonts();
     void		loadRessources();
     void		manageKey();
     void		start();

@@ -13,8 +13,7 @@
 class Menu
 {
   //Pointer on IronSnake instance
-  IronSnake		*_ironSnake;
-  sf::Font		_font;
+  IronSnake		*_iS;
   sf::Text		_text;
   uint8_t		_choice;
 

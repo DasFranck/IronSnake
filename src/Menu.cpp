@@ -1,12 +1,8 @@
 #include "Menu.hpp"
 
-Menu::Menu(IronSnake *iS) : _ironSnake(iS)
+Menu::Menu(IronSnake *iS) : _iS(iS)
 {
   _choice = 1;
-  if (!_font.loadFromFile("ressources/fonts/arial.ttf"))
-    exit(1);
-
-  _text.setFont(_font);
 }
 
 Menu::~Menu()
@@ -16,7 +12,7 @@ Menu::~Menu()
 void	Menu::resetText()
 {
   _text.setColor(sf::Color::White);
-  _text.setFont(_font);
+  _text.setFont(_iS->_font["arial"]);
   _text.setStyle(sf::Text::Style::Regular);
   _text.setRotation(0);
   _text.setScale(1, 1);
@@ -32,7 +28,7 @@ void	Menu::displayText(std::string const str, short size, sf::Vector2f pos, bool
   textRect = _text.getLocalBounds();
   _text.setOrigin(textRect.left + (cenx ? textRect.width/2.0f : 0), textRect.top + (ceny ? textRect.height/2.0f : 0));
   _text.setPosition(pos);
-  _ironSnake->_win.draw(_text);
+  _iS->_win.draw(_text);
   if (reset)
     this->resetText();
 }
@@ -41,7 +37,7 @@ void	Menu::displayText(std::string const str, short size, sf::Vector2f pos, bool
 void	Menu::display()
 {
   //Clear Window
-  _ironSnake->_win.clear(sf::Color::Black);
+  _iS->_win.clear(sf::Color::Black);
 
   //Display Main Menu text
   if (_choice <= MAIN_MENU_END)
@@ -69,7 +65,7 @@ void	Menu::display()
   }
 
   //Put all on screen
-  _ironSnake->_win.display();
+  _iS->_win.display();
 }
 
 //Manage key input
@@ -100,7 +96,7 @@ void	Menu::manageKey()
     {
       //MainMenu -- Play
       case MAIN_MENU_BEGIN:
-        _ironSnake->start();
+        _iS->start();
         break;
 
       //MainMenu -- Options

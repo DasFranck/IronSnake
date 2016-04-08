@@ -5,17 +5,29 @@ IronSnake::IronSnake()
   _focus = false;
   _win.create(sf::VideoMode(WH_SIZE, WV_SIZE), "Iron Snake");
   //_win.setVerticalSyncEnabled(true);
-
-  if (!_font.loadFromFile("ressources/fonts/arial.ttf"))
-    exit(1);
-
-  _text.setFont(_font);
+  this->loadFonts();
+  _text.setFont(_font["arial"]);
   _text.setCharacterSize(24);
 }
 
 IronSnake::~IronSnake()
 {
 
+}
+
+void	IronSnake::loadFont(std::string key, std::string path)
+{
+  sf::Font	font;
+
+  if (!font.loadFromFile(path))
+    exit(1);
+  _font[key] = font;
+}
+
+//Font loader (Loaded at the beginning)
+void	IronSnake::loadFonts()
+{
+  this->loadFont("arial", "ressources/fonts/arial.ttf");
 }
 
 //Ressource loader
@@ -46,7 +58,5 @@ void	IronSnake::stop()
 void	IronSnake::start()
 {
   _focus = true;
-  printf("GAME STARTED");
   this->loadRessources();
-
 }
