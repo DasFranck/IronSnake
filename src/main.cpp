@@ -33,8 +33,6 @@ int			main()
 
         case sf::Event::KeyPressed:
           ironSnake._focus ? ironSnake.manageKey() : menu.manageKey();
-          if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-            return (0);
           break;
 
         default:

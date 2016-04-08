@@ -71,6 +71,7 @@ void	Menu::display()
 //Manage key input
 void	Menu::manageKey()
 {
+  //Down Key
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
   {
     if (_choice <= MAIN_MENU_END)
@@ -79,9 +80,11 @@ void	Menu::manageKey()
       _choice = (_choice == OPTIONS_MENU_END ? OPTIONS_MENU_BEGIN : _choice + 1);
   }
 
+  //Left and right keys (unused for now)
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
 
+  //Up Key
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
   {
     if (_choice <= MAIN_MENU_END)
@@ -118,4 +121,12 @@ void	Menu::manageKey()
       case OPTIONS_MENU_BEGIN + 3:
         _choice = MAIN_MENU_BEGIN + 1;
     }
+
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+  {
+    //Unused for now, maybe one day)
+    if (_choice <= MAIN_MENU_END);
+    else if (_choice <= OPTIONS_MENU_END)
+      _choice = MAIN_MENU_BEGIN + 1;
+  }
 }

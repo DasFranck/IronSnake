@@ -39,13 +39,20 @@ void	IronSnake::loadRessources()
 //Display the game on screen
 void	IronSnake::display()
 {
+  //Clear Window
+  _win.clear(sf::Color::Black);
 
+
+
+  //Put all on screen
+  _win.display();
 }
 
 //Manage key input
 void	IronSnake::manageKey()
 {
-
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    this->stop();
 }
 
 //Stop the game and go back to the main menu
