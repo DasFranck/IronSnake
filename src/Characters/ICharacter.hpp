@@ -7,8 +7,11 @@ class ICharacter
     int		_posY;
     int		_hp;
 
-    //MAP OF SPRITES (Type Unknown for now).
+    //MAP OF VECTOR OF SPRITES (Type Unknown for now).
     //std::map<std::vector< /* SPRITES */ >>
+
+    //MAP OF NOISES (Type Unknown for now)
+    //std::map< /* NOISES */ >
 
     //DIRECTION (Maybe Enum LEFT/RIGHT).
 
@@ -18,4 +21,6 @@ class ICharacter
   public:
     ICharacter();
     virtual ~ICharacter();
+
+    void	loadRessources();
 };

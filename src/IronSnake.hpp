@@ -35,6 +35,9 @@ class IronSnake
     //VECTOR OF IProjectile*
     //std::vector<IProjectile *>		_projectiles;
 
+    //MAP OF SONGS
+    //std::map< /* SONGS */ >
+
   public:
     IronSnake();
     ~IronSnake();

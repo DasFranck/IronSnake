@@ -33,7 +33,14 @@ void	IronSnake::loadFonts()
 //Ressource loader
 void	IronSnake::loadRessources()
 {
+  //LOAD CHARACTER/PLAYER RESSOURCES
+  //_character->loadRessources();
 
+  //LOAD Map/MapObjects
+
+  //LOAD Enemies
+
+  //LOAD SONGS
 }
 
 //Display the game on screen
