@@ -5,8 +5,9 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-//Include Headers
-#include "Characters/ICharacter.hpp"
+//Include Headers -- Players
+#include "Characters/Character.hpp"
+#include "Characters/Snake.hpp"
 
 //Graphics define
 # define FRAMES_PER_SECOND 60
@@ -24,7 +25,7 @@ class IronSnake
     sf::Text				_text;
 
     //PTR ON CHARACTER
-    ICharacter				*_player;
+    Character				*_player;
 
     //VECTOR OF IMapObject*
     //std::vector<IMapObject *>		_mapobjs;

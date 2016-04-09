@@ -4,7 +4,9 @@ CXX	= g++
 
 SRCS	= src/main.cpp \
 	  src/IronSnake.cpp \
-	  src/Menu.cpp
+	  src/Menu.cpp \
+	  src/Characters/Character.cpp \
+	  src/Characters/Snake.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

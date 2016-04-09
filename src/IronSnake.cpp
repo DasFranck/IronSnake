@@ -12,9 +12,9 @@ IronSnake::IronSnake()
 
 IronSnake::~IronSnake()
 {
-
 }
 
+//Load a font
 void	IronSnake::loadFont(std::string key, std::string path)
 {
   sf::Font	font;
@@ -33,9 +33,6 @@ void	IronSnake::loadFonts()
 //Ressource loader
 void	IronSnake::loadRessources()
 {
-  //LOAD CHARACTER/PLAYER RESSOURCES
-  //_character->loadRessources();
-
   //LOAD Map/MapObjects
 
   //LOAD Enemies
@@ -66,11 +63,14 @@ void	IronSnake::manageKey()
 void	IronSnake::stop()
 {
   _focus = false;
+  delete(this->_player);
 }
 
 //Start the game
 void	IronSnake::start()
 {
   _focus = true;
+  //Default player is Snake (for now)
+  this->_player = new Snake;
   this->loadRessources();
 }
