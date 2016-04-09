@@ -8,6 +8,7 @@ Snake::Snake() : Character(100, 1)
   //_posY = 0;
 
   //SIZE To be set
+  this->loadRessources();
 }
 
 Snake::~Snake()
@@ -16,6 +17,8 @@ Snake::~Snake()
 
 void	Snake::loadSprites()
 {
+  _sprites["normal"] = *new std::vector<sf::Sprite>;
+  this->loadSprite("normal", 0, "./ressources/sprites/Snake/normal_0.png");
 }
 
 void	Snake::loadRessources()

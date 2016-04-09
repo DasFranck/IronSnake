@@ -9,19 +9,20 @@ Character::Character(int hp, float spd)
 
 void	Character::loadSprite(std::string keym, int keyv, std::string path)
 {
-  sf::Texture	texture;
+  sf::Texture	*texture;
   sf::Sprite	sprite;
 
-  if (!texture.loadFromFile(path))
-  {
-    std::cerr << "Failure to load: " << path << "\nExiting..." << std::endl;
-    //Load Failed
+
+  if (!(texture = new sf::Texture) || !texture->loadFromFile(path))
     exit(1);
-  }
-  sprite.setTexture(texture);
-  _sprites[keym][keyv] = sprite;
+
+  sprite.setTexture(*texture);
+  _sprites[keym].push_back(sprite);
 }
 
-void	Character::display()
+sf::Sprite&	Character::getSprite()
 {
+  //DEFAULT ANIMATION
+  _sprites["normal"][0].setPosition(0, 0);
+  return (_sprites["normal"][0]);
 }

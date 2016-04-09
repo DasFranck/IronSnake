@@ -44,9 +44,9 @@ void	IronSnake::loadRessources()
 void	IronSnake::display()
 {
   //Clear Window
-  _win.clear(sf::Color::Black);
+  _win.clear(sf::Color::White);
 
-
+  _win.draw(_player->getSprite());
 
   //Put all on screen
   _win.display();

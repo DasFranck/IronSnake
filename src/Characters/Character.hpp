@@ -45,5 +45,5 @@ class Character
     virtual void	loadSprites() = 0;
     virtual void	loadRessources() = 0;
 
-    void		display();
+    sf::Sprite		&getSprite();
 };
