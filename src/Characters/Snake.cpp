@@ -4,8 +4,8 @@
 Snake::Snake() : Character(100, 1)
 {
   //POS To be set
-  //_posX = 0;
-  //_posY = 0;
+  _posX = 0;
+  _posY = 0;
 
   //SIZE To be set
   this->loadRessources();

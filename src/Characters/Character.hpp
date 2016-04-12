@@ -6,7 +6,8 @@
 
 class Character
 {
-  enum Direction {LEFT, RIGHT};
+  public:
+    enum Direction {LEFT, RIGHT};
 
   public:
     //Position on screen
@@ -44,6 +45,8 @@ class Character
     void		loadSprite(std::string keym, int keyv, std::string path);
     virtual void	loadSprites() = 0;
     virtual void	loadRessources() = 0;
+
+    void		walk(Direction _dir);
 
     sf::Sprite		&getSprite();
 };

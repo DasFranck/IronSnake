@@ -22,7 +22,23 @@ void	Character::loadSprite(std::string keym, int keyv, std::string path)
 
 sf::Sprite&	Character::getSprite()
 {
-  //DEFAULT ANIMATION
-  _sprites["normal"][0].setPosition(0, 0);
+  _sprites["normal"][0].setPosition(_posX, _posY);
+
+  if (_dir == Direction::LEFT)
+    _sprites["normal"][0].scale(-1, 1);
   return (_sprites["normal"][0]);
+}
+
+void		Character::walk(Direction _dir)
+{
+  if (_dir == Direction::RIGHT)
+  {
+    printf("RIGHT\n");
+    _posX += 10 * _spd;
+  }
+  else if (_dir == Direction::LEFT)
+  {
+    printf("LEFT\n");
+    _posX -= 10 * _spd;
+  }
 }

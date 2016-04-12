@@ -57,6 +57,14 @@ void	IronSnake::manageKey()
 {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     this->stop();
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
+    //CROUCH
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up));
+    //JUMP
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    _player->walk(Character::Direction::LEFT);
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    _player->walk(Character::Direction::RIGHT);
 }
 
 //Stop the game and go back to the main menu
