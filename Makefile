@@ -12,7 +12,8 @@ OBJS	= $(SRCS:.cpp=.o)
 
 RM	= rm -f
 
-CXXFLAGS = -Wall -Wextra -lsfml-graphics -lsfml-window -lsfml-system -std=c++11
+CXXFLAGS = -Wall -Wextra -std=c++11
+CXXFLAGS += `pkg-config sfml-all --libs --cflags`
 
 all:	 $(NAME)
 
