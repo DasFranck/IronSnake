@@ -1,5 +1,4 @@
-IronSnake
+bin/*
 *.o
-a.out
 *.swp
 *.a

@@ -1,12 +1,17 @@
 #Set some globals
 CC	= gcc
 CXX	= g++
-MKDIR_P	= mkdir -p
+MKDIR	= mkdir -p
 RM	= rm -f
+
+NAME	= bin/IronSnake
+
+#Default rule
+all:	bin/IronSnake
 
 #Check
 ifeq ($(OS),Windows_NT)
-  echo "Windows Compilation not functionnal yet"
+  echo "Windows Compilation not functionnal yet."
   exit 5
 else
   CXXFLAGS = -Wall -Wextra -std=c++11 `pkg-config sfml-all --libs --cflags`
@@ -32,7 +37,7 @@ OBJS_BOX2D	= $(SRCS_BOX2D:.cpp=.o)
 OBJS_IS		= $(SRCS_IS:.cpp=.o)
 
 #Libraries Rules
-## BOX 2D
+## BOX2D
 $(OBJS_BOX2D):		%.o: %.cpp
 			$(CXX) -c $(CXXFLAGS) $< -o $@ -Idependencies/
 dependencies/Box2D.a:	$(OBJS_BOX2D)
@@ -40,16 +45,13 @@ dependencies/Box2D.a:	$(OBJS_BOX2D)
 			ar rcs $@ $(SRCS_BOX2D:.cpp=.o)
 
 #Binairies Rules
-all:		IronSnake
 
-IronSnake:	$(OBJS)
-		$(CXX) $(OBJS) -o $(NAME) $(CXXFLAGS)
+bin/IronSnake:	dependencies/Box2D.a $(OBJS_IS)
+		$(MKDIR) bin/
+		$(CXX) $(OBJS_IS) -o $(NAME) $(CXXFLAGS)
 
 clean:
-		$(RM) $(OBJS)
-
-debug:
-		$(CXX) $(SRCS) -o $(NAME) $(CXXFLAGS) -Wextra -Wall -g3 -ggdb
+		$(RM) $(OBJS_BOX2D) $(OBJS_IS)
 
 fclean:		clean
 		$(RM) $(NAME)
